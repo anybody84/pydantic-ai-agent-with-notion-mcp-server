@@ -3,9 +3,9 @@ import asyncio
 from pydantic_ai import Agent
 from pydantic_ai.settings import ModelSettings
 
-from pydantic_ai_agent.llm import open_ai_model
-from pydantic_ai_agent.mcp_servers import NotionMCPServerStdio
-from pydantic_ai_agent.settings import settings
+from pydantic_ai_agent.llm.models import open_ai_model
+from pydantic_ai_agent.mcp_servers.notion_mcp_server import NotionMCPServerStdio
+from pydantic_ai_agent.settings.settings import settings
 
 system_prompt = """
 You are a helpful AI kitchen assistant specialized in finding recipes.
