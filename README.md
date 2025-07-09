@@ -12,8 +12,8 @@ Notion MCP ([Model Context Protocol](https://modelcontextprotocol.io/introductio
 
 ## Prerequisites
 
-- Python version `3.12` or higher
-- Poetry version `2.1.3` (for package management)
+- `python` version `3.12` or higher
+- `uv` version `0.7.19` (for package management)
 - Docker (for running the Notion MCP server locally)
 - Notion account with access to the recipes database
 
@@ -68,10 +68,9 @@ Ending conversation. Goodbye!
     cd pydantic-ai-agent-with-notion-mcp-server
     ```
 
-2. Install dependencies using Poetry:
+2. Install dependencies using `uv`:
     ```bash
-    poetry env use python3.12
-    poetry install
+    uv sync
     ```
 
 3. Get your Notion API token (`ntn_*****`) from your Notion integration settings.
@@ -97,5 +96,5 @@ More details on how to set this up can be found in the [Notion MCP Server docume
 From the root directory of the project, you can run the agent using:
 
 ```bash
-poetry run python src/pydantic_ai_agent/main.py
+uv run src/pydantic_ai_agent/main.py
 ```
