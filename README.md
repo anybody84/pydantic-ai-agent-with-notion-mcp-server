@@ -12,7 +12,7 @@ Notion MCP ([Model Context Protocol](https://modelcontextprotocol.io/introductio
 
 ## Prerequisites
 
-- `python` version `3.12` or higher
+- `python` version `3.11` or higher
 - `uv` version `0.7.19` (for package management)
 - Docker (for running the Notion MCP server locally)
 - Notion account with access to the recipes database
@@ -88,6 +88,9 @@ More details on how to set this up can be found in the [Notion MCP Server docume
    # Optional: Set the OpenAI model and the temperature you want to use. Default values are as follows:
    # OPENAI_MODEL="gpt-4o-mini"
    # OPENAI_MODEL_TEMPERATURE=0.0
+
+   # Optional: Set the Logfire token if you want to leverage the observability features.
+   # LOGFIRE_TOKEN=your_logfire_token
    ```
 
 
@@ -98,3 +101,14 @@ From the root directory of the project, you can run the agent using:
 ```bash
 uv run src/pydantic_ai_agent/main.py
 ```
+
+## Observability
+
+This project uses [Pydantic Logfire](https://github.com/pydantic/logfire) for observability.
+You can enable observability features by setting the `LOGFIRE_TOKEN` in your `.env` file.
+This will allow you to track the agent's interactions and performance metrics.
+This is optional, but highly recommended.
+
+Once enabled, you can view the logs and metrics in the Logfire dashboard.
+
+![Logfire Example Logs](docs/logfire_example.jpg)
