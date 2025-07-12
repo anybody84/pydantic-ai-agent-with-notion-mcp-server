@@ -8,7 +8,7 @@ from pydantic_ai_agent.llm.models import open_ai_model
 from pydantic_ai_agent.mcp_servers.notion_mcp_server import NotionMCPServerStdio
 from pydantic_ai_agent.settings.settings import settings
 
-logfire.configure(send_to_logfire="if-token-present", console=False)
+logfire.configure(send_to_logfire="if-token-present", token=settings.logfire_token, console=False)
 logfire.instrument_pydantic_ai()
 
 system_prompt = """
@@ -55,6 +55,7 @@ def instructions():
 
 
 async def main():
+    logfire.info("Starting application")
     logo()
     instructions()
     message_history = []
@@ -69,6 +70,8 @@ async def main():
                 if should_end_conversation(user_input):
                     print("Ending conversation. Goodbye!")
                     break
+
+        logfire.info("Exiting application")
 
 
 if __name__ == "__main__":

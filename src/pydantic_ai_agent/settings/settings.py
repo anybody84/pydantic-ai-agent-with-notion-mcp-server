@@ -8,6 +8,7 @@ class AppSettings(BaseSettings):
     openai_api_key: str
     openai_model: str = "gpt-4o-mini"
     openai_model_temperature: float = 0.0
+    logfire_token: str | None = None
 
 
 class LocalAppSettings(AppSettings):
